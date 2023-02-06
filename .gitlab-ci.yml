@@ -1,0 +1,14 @@
+image: maven:latest
+
+stages:
+  - lint
+
+cache:
+  paths:
+    - .m2/repository/
+    - target/
+
+lint:
+  stage: lint
+  script:
+    - mvn clean verify -DskipTests=true
